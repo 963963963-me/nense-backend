@@ -25,7 +25,6 @@ app.post('/chat', async (req, res) => {
       },
       body: JSON.stringify({
         model: 'claude-sonnet-5-5',
-        model: 'claude-sonnet-5-5',
         max_tokens: 300,
         system: SYSTEM,
         messages: [{ role: 'user', content: `Jemand fühlt gerade: ${mood}. Das Zitat hat sie berührt: '${quote}' — ${source}. Was sagst du ihnen? (Variation ${variation})` }]
@@ -38,7 +37,7 @@ app.post('/chat', async (req, res) => {
     console.log('📡 API Response raw:', rawText.substring(0, 200))
 
     const data = JSON.parse(rawText)
-    res.json({ text: data.content?.[0]?.text ?? 'Nimm dir einen Moment.' })
+    res.json({ text: data.content?.find(b => b.type === 'text')?.text ?? 'Nimm dir einen Moment.' })
   } catch(err) {
     console.error('❌ Fehler:', err.message)
     res.json({ text: 'Nimm dir einen Moment. Was du gerade fühlst, ist real.' })
