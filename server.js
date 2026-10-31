@@ -24,7 +24,7 @@ app.post('/chat', async (req, res) => {
         'anthropic-version': '2023-06-01'
       },
       body: JSON.stringify({
-        model: 'claude-3-haiku-20240307',
+        model: 'claude-haiku-4-5',
         max_tokens: 300,
         system: SYSTEM,
         messages: [{ role: 'user', content: `Jemand fühlt gerade: ${mood}. Das Zitat hat sie berührt: '${quote}' — ${source}. Was sagst du ihnen? (Variation ${variation})` }]
