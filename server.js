@@ -37,6 +37,7 @@ app.post('/chat', async (req, res) => {
     console.log('📡 API Response raw:', rawText.substring(0, 200))
 
     const data = JSON.parse(rawText)
+    console.log('🔍 Content:', JSON.stringify(data.content))
     res.json({ text: data.content?.find(b => b.type === 'text')?.text ?? 'Nimm dir einen Moment.' })
   } catch(err) {
     console.error('❌ Fehler:', err.message)
