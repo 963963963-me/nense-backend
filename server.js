@@ -13,7 +13,7 @@ app.post('/chat', async (req, res) => {
   const variation = Math.floor(Math.random() * 999) + 1
   try {
     const controller = new AbortController()
-    const timeout = setTimeout(() => controller.abort(), 10000)
+    const timeout = setTimeout(() => controller.abort(), 30000)
 
     const response = await fetch('https://api.anthropic.com/v1/messages', {
       method: 'POST',
