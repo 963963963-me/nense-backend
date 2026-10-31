@@ -24,11 +24,8 @@ app.post('/chat', async (req, res) => {
         'anthropic-version': '2023-06-01'
       },
       body: JSON.stringify({
-<<<<<<< HEAD
         model: 'claude-sonnet-5-5',
-=======
         model: 'claude-sonnet-5-5',
->>>>>>> 5966831 (Update Claude model to sonnet-5-5)
         max_tokens: 300,
         system: SYSTEM,
         messages: [{ role: 'user', content: `Jemand fühlt gerade: ${mood}. Das Zitat hat sie berührt: '${quote}' — ${source}. Was sagst du ihnen? (Variation ${variation})` }]
